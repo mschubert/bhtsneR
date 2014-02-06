@@ -1,9 +1,9 @@
 # R
-.Rhistory
-.Rdata
+*.Rhistory
+*.Rdata
 *-Ex.R
 
 # C++
-.o
-.so
+*.o
+*.so
 

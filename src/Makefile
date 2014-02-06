@@ -1,8 +1,8 @@
 # Makefile for bh_tsne
 
-CCFLAGS = -Wall -Wextra -I. -O3 -g -fPIC
-LIBS = -lcblas
 CC = g++
+CXXFLAGS = -Wall -Wextra -I. -O3 -g -fPIC
+LIBS = -lcblas
 
 SOURCE = $(wildcard *.cpp)
 OBJ = $(SOURCE:%.cpp=%.o)
