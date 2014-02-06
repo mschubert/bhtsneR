@@ -1,0 +1,9 @@
+# R
+.Rhistory
+.Rdata
+*-Ex.R
+
+# C++
+.o
+.so
+
