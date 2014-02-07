@@ -1,5 +1,7 @@
 # Makefile for bh_tsne
 
+TARGET = bhtsneR.so
+
 CC = g++
 CXXFLAGS = -Wall -Wextra -I. -O3 -g -fPIC
 LIBS = -lcblas
@@ -9,14 +11,14 @@ OBJ = $(SOURCE:%.cpp=%.o)
 
 .INTERMEDIATE: $(OBJ)
 
-all: bh_tsne.so
+all: $(TARGET)
 
-bh_tsne.so: $(OBJ)
+$(TARGET): $(OBJ)
 	$(CC) -shared -Wl,-soname,$@ $(LIBS) -o $@ $^
 
 %.o: %.c include/%.h
 	$(CC) $(CCFLAGS) -c $<
 
 clean:
-	rm -f bh_tsne.so $(OBJ)
+	rm -f $(TARGET) $(OBJ)
 
