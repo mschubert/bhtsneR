@@ -16,8 +16,8 @@ all: $(TARGET)
 $(TARGET): $(OBJ)
 	$(CC) -shared -Wl,-soname,$@ $(LIBS) -o $@ $^
 
-%.o: %.c include/%.h
-	$(CC) $(CCFLAGS) -c $<
+%.o: %.c %.h
+	$(CC) $(CXXFLAGS) -c $<
 
 clean:
 	rm -f $(TARGET) $(OBJ)

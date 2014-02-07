@@ -2,6 +2,9 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 bhtsne = function(X, no_dims=2, perplexity=30, theta=0.5) {
+    print(nrow(X))
+    print(ncol(X))
+    print(theta)
     .Call('bh_sne',
           N = nrow(X),
           D = ncol(X),
