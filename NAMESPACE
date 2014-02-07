@@ -1,2 +1,3 @@
+useDynLib(bhtsneR)
 exportPattern("^[[:alpha:]]+")
-useDynLib()
+importFrom(Rcpp, evalCpp)
