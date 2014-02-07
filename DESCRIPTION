@@ -1,0 +1,9 @@
+Package: hgu219frmavecs
+Title: Barnes-Hut t-SNE wrapper
+Version: 0.1
+Created: Thu Nov 14 17:12:10 2013
+Author: Michael Schubert <schubert@ebi.ac.uk>
+Description: Rcpp wrapped compiled code of Barnes-Hut t-SNE
+Maintainer: Michael Schubert <schubert@ebi.a.uk>
+Depends: R (>= 2.10.0)
+License: GPL (>= 2)
