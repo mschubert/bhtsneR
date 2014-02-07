@@ -6,6 +6,7 @@ bhtsne = function(X, no_dims=2, perplexity=30, theta=0.5) {
     print(ncol(X))
     print(theta)
     .Call('bh_sne',
+          as.matrix(X),
           N = nrow(X),
           D = ncol(X),
           no_dims = no_dims, 
