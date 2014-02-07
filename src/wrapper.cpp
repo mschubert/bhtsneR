@@ -10,17 +10,17 @@ BEGIN_RCPP
     int N = X_r.nrow();
     int D = X_r.ncol();
 
-    // access to double array for input
-    double *X_c = as<double*>(X_r);
-
-    // create out matrix
-    double Y_c[N*no_dims];
+    // create std vectors
+    std::vector<double> X_c = as< std::vector<double> >(X_r);
+    std::vector<double> Y_c(N*no_dims);
 
     // run TSNE
     TSNE tsne = TSNE();
-    tsne.run(X_c, N, D, &Y_c, no_dims, perplexity, theta);
+    tsne.run(&X_c[0], N, D, &Y_c[0], no_dims, perplexity, theta);
 
     // return an R matrix
+    NumericVector Y_r = wrap(Y_c);
+    output.attr("dim") = Dimension(N, no_dims);
     return Matrix::create(Y_c)
 
 END_RCPP
