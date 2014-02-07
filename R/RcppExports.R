@@ -2,11 +2,8 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 bhtsne = function(X, no_dims=2, perplexity=30, theta=0.5) {
-    print(nrow(X))
-    print(ncol(X))
-    print(theta)
-    .Call('bh_sne',
-          as.matrix(X),
+    result = .Call('bh_sne',
+          t(as.matrix(X)),
           N = nrow(X),
           D = ncol(X),
           no_dims = no_dims, 
@@ -14,5 +11,6 @@ bhtsne = function(X, no_dims=2, perplexity=30, theta=0.5) {
           theta = theta, 
           PACKAGE = 'bhtsneR'
     )
+    return(t(matrix(result, nrow=no_dims)))
 }
 
