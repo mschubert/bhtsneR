@@ -3,8 +3,8 @@
 TARGET = bhtsneR.so
 
 CC = g++
-CXXFLAGS = -Wall -Wextra -I. -O3 -g -fPIC
-LIBS = -lcblas
+CXXFLAGS = $(shell pkg-config --silence-errors --cflags cblas) -Wall -Wextra -I. -O3 -g -fPIC
+LIBS = $(shell pkg-config --silence-errors --libs cblas)
 
 SOURCE = $(wildcard *.cpp)
 OBJ = $(SOURCE:%.cpp=%.o)
