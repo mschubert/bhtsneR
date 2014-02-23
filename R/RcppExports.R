@@ -14,3 +14,7 @@ bhtsne = function(X, no_dims=2, perplexity=30, theta=0.5) {
     return(t(matrix(result, nrow=no_dims)))
 }
 
+tsne = function(X, no_dims=2, perplexity=30) {
+    bhtsne(X, no_dims, perplexity, theta=0)
+}
+

@@ -1,10 +1,13 @@
 # Makefile for bh_tsne
 
-TARGET = bhtsneR.so
+CBLAS_LIBS = $(shell pkg-config --silence-errors --libs cblas)
+CBLAS_LIBS ?= -lcblas
+CBLAS_INCLUDE = $(shell pkg-config --silence-errors --cflags cblas)
 
+TARGET = bhtsneR.so
 CC = g++
-CXXFLAGS = $(shell pkg-config --silence-errors --cflags cblas) -Wall -Wextra -I. -O3 -g -fPIC
-LIBS = $(shell pkg-config --silence-errors --variable=libdir cblas) -lcblas
+CXXFLAGS = $(CBLAS_INCLUDE) -Wall -Wextra -I. -O3 -g -fPIC
+LIBS = $(CBLAS_LIBS)
 
 SOURCE = $(wildcard *.cpp)
 OBJ = $(SOURCE:%.cpp=%.o)
