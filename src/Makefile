@@ -1,7 +1,6 @@
 # Makefile for bh_tsne
 
-CBLAS_LIBS = $(shell pkg-config --silence-errors --libs cblas)
-CBLAS_LIBS ?= -lcblas
+CBLAS_LIBS = $(shell pkg-config --silence-errors --libs cblas || echo -lcblas)
 CBLAS_INCLUDE = $(shell pkg-config --silence-errors --cflags cblas)
 
 TARGET = bhtsneR.so

@@ -2,8 +2,11 @@
 # Generator token: 10BE3573-1514-4C36-9D1C-5A225CD40393
 
 bhtsne = function(X, no_dims=2, perplexity=30, theta=0.5) {
+    if (nrow(X) - 1 < 3 * perplexity)
+        stop("Perplexity too large for the number of data points!")
+
     result = .Call('bh_sne',
-          t(as.matrix(X)),
+          X = t(as.matrix(X)),
           N = nrow(X),
           D = ncol(X),
           no_dims = no_dims, 
